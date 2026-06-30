@@ -9,6 +9,11 @@
 #include <limits.h>
 #include <mach-o/dyld.h>
 
+// This macro only exists in https://github.com/roothide/theos
+#ifdef THEOS_PACKAGE_SCHEME_ROOTHIDE
+#include <roothide.h>
+#endif
+
 #include "patchfind.h"
 #include "subtype.h"
 #include "utils.h"
@@ -129,7 +134,11 @@ __attribute__((constructor)) static void ctor(void) {
 		}
 	}
 
-	if (is_whitelisted == false && strstr(executable_path, "/procursus/Applications") == NULL) {
+#ifdef THEOS_PACKAGE_SCHEME_ROOTHIDE // This macro only exists in https://github.com/roothide/theos
+	if (is_whitelisted == false && string_has_prefix(rootfs(executable_path), "/Applications/") == false) {
+#else
+	if (is_whitelisted == false && strstr(executable_path, "/procursus/Applications/") == NULL) {
+#endif
 		return;
 	}
 
