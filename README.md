@@ -7,7 +7,7 @@ Built for iOS 15+.
 More information is available here: https://github.com/NightwindDev/Tweak-Tutorial/blob/main/oldabi.md
 
 ### How to install
-Head over to the [Releases](https://github.com/NightwindDev/oldabi-c/releases) section and download the correct `.deb` for your device. For your convenience, the rootful .deb is compiled with the old arm64e ABI.
+Head over to the [Releases](https://github.com/NightwindDev/oldabi-c/releases) section and download the correct `.deb` for your device.
 
 ### How to compile manually
 Make sure you have [Theos](https://github.com/theos/theos) installed and configured.
